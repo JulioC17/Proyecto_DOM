@@ -1,0 +1,149 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#header {
+  background-image: url(./assets/barrasupeior.jpg);
+  background-size: cover;
+  }
+
+  nav{
+    display: flex;
+    color:aliceblue;
+    justify-content:space-between;
+    padding: 1%;
+    background-color: black;
+  }
+
+  header > nav > h3{
+    text-decoration: line-through;
+  }
+  
+  header > nav > ul{
+  list-style-type: none ;
+  display: flex;
+  justify-content: end;
+  background-color: rgb(0, 0, 0);
+  gap: 50px
+  
+  
+  }
+
+  header > nav > ul > li > a {
+  text-decoration: none;
+  color: rgb(255, 255, 255)
+  }
+
+  header > nav > ul > li > a:hover{
+  text-decoration: line-through;
+  color: rgb(255, 174, 0);
+  
+  }
+
+  h1{
+  color: white;
+  padding:3%;
+  text-align: center;
+  text-decoration: line-through;
+  }
+
+  img{
+
+    width: 80%;
+    border-radius: 1%;
+    }
+
+  article{
+    background-color: rgb(245, 245, 245);
+    border-radius: 3%;
+    width: fit-content;
+    text-align: center;
+    margin: 5%;
+    padding: 1%;
+    width: 40vh;
+  }
+  
+  #main{
+    width: 80%;
+    margin: auto;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     justify-items: center;
+  }
+
+  aside{
+    position: fixed;
+    background-color: rgba(117, 117, 117, 0.212);
+    top:200px;
+    left: 0px;
+    border-radius: 5px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    padding: 1%;
+    margin: 0.5%;
+    
+    
+  }
+
+  section > h3 {
+    text-decoration: line-through;
+    color: rgb(46, 46, 46);
+  }
+
+  section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content:center ;
+    gap:10px;
+  }
+  
+
+  .Precios {
+    gap:10px ;
+    align-items: center;   
+  }
+
+  button {
+     border-radius: 5px;
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     padding: 1%;
+     width: 80%;
+     transition: 0.2s;
+  }
+
+  button:hover{
+
+    background-color: black;
+    color: white;
+  }
+
+  button:active{
+    background-color: rgb(255, 174, 0);
+  }
+
+  aside > div {
+    display: flex;
+    gap: 10px;
+    /* flex-direction: column; */
+    text-align: center;
+  }
+
+
+  
