@@ -68,17 +68,18 @@
   
   #main{
     width: 80%;
-    margin: auto;
+    margin-left: 20%;
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
      justify-items: center;
+     gap:5%;
   }
 
   aside{
-    position: fixed;
+    position: sticky;
     background-color: rgba(117, 117, 117, 0.212);
-    top:200px;
+    bottom: 10vh;
     left: 0px;
     border-radius: 5px;
     width: fit-content;
@@ -145,5 +146,92 @@
     text-align: center;
   }
 
+  footer{
+    background-image: url(./assets/barrasupeior.jpg);
+    background-size: cover;
+    color: white;
+    display: flex;
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    padding: 5%;
+
+  }
+
+
+  @media screen and (max-width: 954px) {
+    
+  
+header{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header > nav {
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  width: 100%;;
+}
+
+header > nav > h3{
+  padding:7%;
+}
+
+header > nav > ul{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#main{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  margin:auto;
+  
+
+}
+
+aside{
+  position: static;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  top: 50px;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+aside
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  
+  }
+
+ 
 
   

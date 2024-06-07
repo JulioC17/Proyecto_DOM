@@ -30,7 +30,7 @@ const products = [
         nombre: "Camiseta Azul",
         color: "Azul",
         precio: 15.50,
-        talla: "XL",    
+        talla: "M",    
         vendedor: "Pull&Bear",
         imagen: "./assets/7.jpg",
         imagenModelo: "./assets/modelo7.jpg"
@@ -66,7 +66,7 @@ const products = [
         nombre: "Camiseta Metallica",
         color: "Negro",
         precio: 25.00,
-        talla: "XL",    
+        talla: "M",    
         vendedor: "Pull&Bear",
         imagen: "./assets/9.jpg",
         imagenModelo: "./assets/modelo9.jpg"
@@ -124,6 +124,7 @@ const products = [
         const articulo = document.createElement("article")
         const tituloArticulo = document.createElement("h2")
         const precioArticulo = document.createElement("h3")
+        const tallaArticulo = document.createElement("h3")
         const carta = document.createElement("img")
         carta.src = producto.imagen
         const modelo = document.createElement("img")
@@ -132,10 +133,12 @@ const products = [
 
         tituloArticulo.innerText = producto.nombre
         precioArticulo.innerText = producto.precio
+        tallaArticulo.innerText = "Talla " + producto.talla
 
         articulo.appendChild(carta)
         articulo.appendChild(tituloArticulo)
         articulo.appendChild(precioArticulo)
+        articulo.appendChild(tallaArticulo)
 
         main.appendChild(articulo)
          
@@ -226,7 +229,7 @@ const products = [
  
  
   botonReiniciarFiltros.onclick = function (){
-    //este boton no me reinicia al esatdo original
+    
     const main = document.querySelector("main")
     main.innerHTML = "";
 
@@ -234,18 +237,24 @@ const products = [
     
     };
     
+    const checkS = document.querySelector("#talla_S")
+    const checkM = document.querySelector("#talla_M")
+    const checkL = document.querySelector("#talla_L")  
 
-  
-  
+
+    const copiaProducts = [...products]
+   
   botonAside.onclick = function (){
     const main = document.querySelector("main")
     main.innerHTML = ""
-    const precioAscendente = products.sort((a,b) => a.precio - b.precio)
+    
+    const precioAscendente = copiaProducts.sort((a,b) => a.precio - b.precio)
     for ( const precio of precioAscendente){
 
       const articulo = document.createElement("article")
       const tituloArticulo = document.createElement("h2")
       const precioArticulo = document.createElement("h3")
+      const tallaArticulo = document.createElement("h3")
       const carta = document.createElement("img")
       carta.src = precio.imagen
       const modelo = document.createElement("img")
@@ -254,10 +263,12 @@ const products = [
 
       tituloArticulo.innerText = precio.nombre
       precioArticulo.innerText = precio.precio
+      tallaArticulo.innerText = "Talla " + precio.talla
 
       articulo.appendChild(carta)
       articulo.appendChild(tituloArticulo)
       articulo.appendChild(precioArticulo)
+      articulo.appendChild(tallaArticulo)
 
       main.appendChild(articulo)
        
@@ -269,13 +280,433 @@ const products = [
       carta.src = precio.imagen     
         })
       }
+     
+      if (checkS.checked ===true || checkM.checked === true || checkL.checked ===true ){
+        const main = document.querySelector("main")
+         main.innerHTML = ""
+      }
+      if (checkS.checked === true){
+        
+        for ( const productoTalla of copiaProducts){
+             
+           if ( productoTalla.talla === "S"){
+            const articulo = document.createElement("article")
+           const tituloArticulo = document.createElement("h2")
+           const precioArticulo = document.createElement("h3")
+           const tallaArticulo = document.createElement("h3")
+           const carta = document.createElement("img")
+           carta.src = productoTalla.imagen
+           const modelo = document.createElement("img")
+           modelo.src = productoTalla.imagenModelo
+    
+    
+           tituloArticulo.innerText = productoTalla.nombre
+           precioArticulo.innerText = productoTalla.precio
+           tallaArticulo.innerText = "Talla " + productoTalla.talla
+    
+           articulo.appendChild(carta)
+           articulo.appendChild(tituloArticulo)
+           articulo.appendChild(precioArticulo)
+           articulo.appendChild(tallaArticulo)
+    
+           main.appendChild(articulo)
+            
+           articulo.addEventListener("mouseover", () => {
+           carta.src = productoTalla.imagenModelo 
+             })
+    
+           articulo.addEventListener("mouseout", () => {
+           carta.src = productoTalla.imagen     
+             })
+             
+          }      
+        }
+      }
+      if (checkM.checked === true){
+        
+        for ( const productoTalla of copiaProducts){
+             
+           if ( productoTalla.talla === "M"){
+            const articulo = document.createElement("article")
+           const tituloArticulo = document.createElement("h2")
+           const precioArticulo = document.createElement("h3")
+           const tallaArticulo = document.createElement("h3")
+           const carta = document.createElement("img")
+           carta.src = productoTalla.imagen
+           const modelo = document.createElement("img")
+           modelo.src = productoTalla.imagenModelo
+    
+    
+           tituloArticulo.innerText = productoTalla.nombre
+           precioArticulo.innerText = productoTalla.precio
+           tallaArticulo.innerText = "Talla " + productoTalla.talla
+
+    
+           articulo.appendChild(carta)
+           articulo.appendChild(tituloArticulo)
+           articulo.appendChild(precioArticulo)
+           articulo.appendChild(tallaArticulo)
+    
+           main.appendChild(articulo)
+            
+           articulo.addEventListener("mouseover", () => {
+           carta.src = productoTalla.imagenModelo 
+             })
+    
+           articulo.addEventListener("mouseout", () => {
+           carta.src = productoTalla.imagen     
+             })
+             
+          }      
+        }
+      }
+    
+      if (checkL.checked === true){
+          
+        for ( const productoTalla of copiaProducts){
+             
+           if ( productoTalla.talla === "L"){
+            const articulo = document.createElement("article")
+           const tituloArticulo = document.createElement("h2")
+           const precioArticulo = document.createElement("h3")
+           const tallaArticulo = document.createElement("h3")
+           const carta = document.createElement("img")
+           carta.src = productoTalla.imagen
+           const modelo = document.createElement("img")
+           modelo.src = productoTalla.imagenModelo
+    
+    
+           tituloArticulo.innerText = productoTalla.nombre
+           precioArticulo.innerText = productoTalla.precio
+           tallaArticulo.innerText = "Talla " + productoTalla.talla
+    
+           articulo.appendChild(carta)
+           articulo.appendChild(tituloArticulo)
+           articulo.appendChild(precioArticulo)
+           articulo.appendChild(tallaArticulo)
+    
+           main.appendChild(articulo)
+            
+           articulo.addEventListener("mouseover", () => {
+           carta.src = productoTalla.imagenModelo 
+             })
+    
+           articulo.addEventListener("mouseout", () => {
+           carta.src = productoTalla.imagen     
+             })
+             
+          }      
+        }
+      }
 }
+
+botonAside2.onclick = function (){
+  const main = document.querySelector("main")
+  main.innerHTML = ""
+  
+  const precioDescendente = copiaProducts.sort((a,b) => b.precio - a.precio)
+  for ( const precio of precioDescendente){
+
+    const articulo = document.createElement("article")
+    const tituloArticulo = document.createElement("h2")
+    const precioArticulo = document.createElement("h3")
+    const tallaArticulo = document.createElement("h3")
+    const carta = document.createElement("img")
+    carta.src = precio.imagen
+    const modelo = document.createElement("img")
+    modelo.src = precio.imagenModelo
+
+
+    tituloArticulo.innerText = precio.nombre
+    precioArticulo.innerText = precio.precio
+    tallaArticulo.innerText = "Talla " + precio.talla
+
+    articulo.appendChild(carta)
+    articulo.appendChild(tituloArticulo)
+    articulo.appendChild(precioArticulo)
+    articulo.appendChild(tallaArticulo)
+
+    main.appendChild(articulo)
+     
+    articulo.addEventListener("mouseover", () => {
+    carta.src = precio.imagenModelo 
+      })
+
+    articulo.addEventListener("mouseout", () => {
+    carta.src = precio.imagen     
+      })
+    }
+
+    if (checkS.checked ===true || checkM.checked === true || checkL.checked ===true ){
+      const main = document.querySelector("main")
+       main.innerHTML = ""
+    }
+
+    if (checkS.checked === true){
+      
+      for ( const productoTalla of copiaProducts){
+           
+         if ( productoTalla.talla === "S"){
+          const articulo = document.createElement("article")
+         const tituloArticulo = document.createElement("h2")
+         const precioArticulo = document.createElement("h3")
+         const tallaArticulo = document.createElement("h3")
+         const carta = document.createElement("img")
+         carta.src = productoTalla.imagen
+         const modelo = document.createElement("img")
+         modelo.src = productoTalla.imagenModelo
+  
+  
+         tituloArticulo.innerText = productoTalla.nombre
+         precioArticulo.innerText = productoTalla.precio
+         tallaArticulo.innerText = "Talla " + productoTalla.talla
+  
+         articulo.appendChild(carta)
+         articulo.appendChild(tituloArticulo)
+         articulo.appendChild(precioArticulo)
+         articulo.appendChild(tallaArticulo)
+  
+         main.appendChild(articulo)
+          
+         articulo.addEventListener("mouseover", () => {
+         carta.src = productoTalla.imagenModelo 
+           })
+  
+         articulo.addEventListener("mouseout", () => {
+         carta.src = productoTalla.imagen     
+           })
+           
+        }      
+      }
+    }
+    if (checkM.checked === true){
+      
+      for ( const productoTalla of copiaProducts){
+           
+         if ( productoTalla.talla === "M"){
+          const articulo = document.createElement("article")
+         const tituloArticulo = document.createElement("h2")
+         const precioArticulo = document.createElement("h3")
+         const tallaArticulo = document.createElement("h3")
+         const carta = document.createElement("img")
+         carta.src = productoTalla.imagen
+         const modelo = document.createElement("img")
+         modelo.src = productoTalla.imagenModelo
+  
+  
+         tituloArticulo.innerText = productoTalla.nombre
+         precioArticulo.innerText = productoTalla.precio
+         tallaArticulo.innerText = "Talla " + productoTalla.talla
+  
+         articulo.appendChild(carta)
+         articulo.appendChild(tituloArticulo)
+         articulo.appendChild(precioArticulo)
+         articulo.appendChild(tallaArticulo)
+  
+         main.appendChild(articulo)
+          
+         articulo.addEventListener("mouseover", () => {
+         carta.src = productoTalla.imagenModelo 
+           })
+  
+         articulo.addEventListener("mouseout", () => {
+         carta.src = productoTalla.imagen     
+           })
+           
+        }      
+      }
+    }
+  
+    if (checkL.checked === true){
+        
+      for ( const productoTalla of copiaProducts){
+           
+         if ( productoTalla.talla === "L"){
+          const articulo = document.createElement("article")
+         const tituloArticulo = document.createElement("h2")
+         const precioArticulo = document.createElement("h3")
+         const tallaArticulo = document.createElement("h3")
+         const carta = document.createElement("img")
+         carta.src = productoTalla.imagen
+         const modelo = document.createElement("img")
+         modelo.src = productoTalla.imagenModelo
+  
+  
+         tituloArticulo.innerText = productoTalla.nombre
+         precioArticulo.innerText = productoTalla.precio
+         tallaArticulo.innerText = "Talla " + productoTalla.talla
+  
+         articulo.appendChild(carta)
+         articulo.appendChild(tituloArticulo)
+         articulo.appendChild(precioArticulo)
+         articulo.appendChild(tallaArticulo)
+  
+         main.appendChild(articulo)
+          
+         articulo.addEventListener("mouseover", () => {
+         carta.src = productoTalla.imagenModelo 
+           })
+  
+         articulo.addEventListener("mouseout", () => {
+         carta.src = productoTalla.imagen     
+           })
+           
+        }      
+      }
+    }
+}
+
+
+botonAplicarFiltros.onclick = function (){
+
+  const main = document.querySelector("main")
+  main.innerHTML = ""
+
+  if (checkS.checked === true){
+      
+    for ( const productoTalla of copiaProducts){
+         
+       if ( productoTalla.talla === "S"){
+        const articulo = document.createElement("article")
+       const tituloArticulo = document.createElement("h2")
+       const precioArticulo = document.createElement("h3")
+       const tallaArticulo = document.createElement("h3")
+       const carta = document.createElement("img")
+       carta.src = productoTalla.imagen
+       const modelo = document.createElement("img")
+       modelo.src = productoTalla.imagenModelo
+
+
+       tituloArticulo.innerText = productoTalla.nombre
+       precioArticulo.innerText = productoTalla.precio
+       tallaArticulo.innerText = "Talla " + productoTalla.talla
+
+       articulo.appendChild(carta)
+       articulo.appendChild(tituloArticulo)
+       articulo.appendChild(precioArticulo)
+       articulo.appendChild(tallaArticulo)
+
+       main.appendChild(articulo)
+        
+       articulo.addEventListener("mouseover", () => {
+       carta.src = productoTalla.imagenModelo 
+         })
+
+       articulo.addEventListener("mouseout", () => {
+       carta.src = productoTalla.imagen     
+         })
+         
+      }      
+    }
+  }
+  if (checkM.checked === true){
+      
+    for ( const productoTalla of copiaProducts){
+         
+       if ( productoTalla.talla === "M"){
+        const articulo = document.createElement("article")
+       const tituloArticulo = document.createElement("h2")
+       const precioArticulo = document.createElement("h3")
+       const tallaArticulo = document.createElement("h3")
+       const carta = document.createElement("img")
+       carta.src = productoTalla.imagen
+       const modelo = document.createElement("img")
+       modelo.src = productoTalla.imagenModelo
+
+
+       tituloArticulo.innerText = productoTalla.nombre
+       precioArticulo.innerText = productoTalla.precio
+       tallaArticulo.innerText = "Talla " + productoTalla.talla
+
+       articulo.appendChild(carta)
+       articulo.appendChild(tituloArticulo)
+       articulo.appendChild(precioArticulo)
+       articulo.appendChild(tallaArticulo)
+
+       main.appendChild(articulo)
+        
+       articulo.addEventListener("mouseover", () => {
+       carta.src = productoTalla.imagenModelo 
+         })
+
+       articulo.addEventListener("mouseout", () => {
+       carta.src = productoTalla.imagen     
+         })
+         
+      }      
+    }
+  }
+
+  if (checkL.checked === true){
+      
+    for ( const productoTalla of copiaProducts){
+         
+       if ( productoTalla.talla === "L"){
+        const articulo = document.createElement("article")
+       const tituloArticulo = document.createElement("h2")
+       const precioArticulo = document.createElement("h3")
+       const tallaArticulo = document.createElement("h3")
+       const carta = document.createElement("img")
+       carta.src = productoTalla.imagen
+       const modelo = document.createElement("img")
+       modelo.src = productoTalla.imagenModelo
+
+
+       tituloArticulo.innerText = productoTalla.nombre
+       precioArticulo.innerText = productoTalla.precio
+       tallaArticulo.innerText = "Talla " + productoTalla.talla
+
+       articulo.appendChild(carta)
+       articulo.appendChild(tituloArticulo)
+       articulo.appendChild(precioArticulo)
+       articulo.appendChild(tallaArticulo)
+
+       main.appendChild(articulo)
+        
+       articulo.addEventListener("mouseover", () => {
+       carta.src = productoTalla.imagenModelo 
+         })
+
+       articulo.addEventListener("mouseout", () => {
+       carta.src = productoTalla.imagen     
+         })
+         
+      }      
+    }
+  }
+}
+
+const footer = document.querySelector("footer")
+const preguntasFrecuentes = document.createElement("h3")
+const quienesSomos = document.createElement("h3")
+const envios = document.createElement("h3")
+const politiDePrivacidad = document.createElement("h3")
+
+preguntasFrecuentes.innerText = "Preguntas Frecuentes"
+quienesSomos.innerText = "Quienes Somos"
+envios.innerText = "Envios"
+politiDePrivacidad.innerText = "Política de Privacidad"
+
+footer.appendChild(preguntasFrecuentes)
+footer.appendChild(quienesSomos)
+footer.appendChild(envios)
+footer.appendChild(politiDePrivacidad)
+
+
+
+
+
+ 
+
+
+
+
   
     
   
   
   
-  
+
   
   
   
